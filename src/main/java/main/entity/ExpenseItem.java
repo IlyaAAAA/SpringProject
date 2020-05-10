@@ -1,7 +1,10 @@
 package main.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
+@Data
 @Entity
 @Table(name = "expense_items")
 public class ExpenseItem {
@@ -13,35 +16,4 @@ public class ExpenseItem {
   @Column(nullable = false)
   private String name;
 
-  public ExpenseItem() {
-
-  }
-
-  public ExpenseItem(String name) {
-    this.name = name;
-  }
-
-  public Integer getId() {
-    return id;
-  }
-
-  public void setId(Integer id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  @Override
-  public String toString() {
-    return "ExpenseItem{" +
-            "id=" + id +
-            ", name='" + name + '\'' +
-            '}';
-  }
 }
