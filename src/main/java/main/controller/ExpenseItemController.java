@@ -1,11 +1,9 @@
 package main.controller;
 
 import main.entity.ExpenseItem;
-import main.repository.ExpenseItemRepository;
-import org.springframework.beans.BeanUtils;
+import main.service.expenseItemService.ExpenseItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,20 +13,16 @@ import java.util.List;
 //TODO(SDELAT)
 @RestController
 @RequestMapping(value = "/expense_items")
-public class StartController {
+public class ExpenseItemController {
 
 
-  private final ExpenseItemRepository expenseItemRepository;
+  private final ExpenseItemService expenseItemService;
 
   @Autowired
-  public StartController(ExpenseItemRepository expenseItemRepository) {
-    this.expenseItemRepository = expenseItemRepository;
+  public ExpenseItemController(ExpenseItemService expenseItemService) {
+    this.expenseItemService = expenseItemService;
   }
 
-//  @GetMapping
-//  public String start() {
-//    return "index";
-//  }
 
   @GetMapping(value = "/{id}") //nahodit po id, preobrazuet v object(6:39(1video))
   public ExpenseItem getItem(@PathVariable("id") ExpenseItem expenseItem){
@@ -36,29 +30,27 @@ public class StartController {
     return expenseItem;
   }
 
-  //@GetMapping("/expense_items")
   @GetMapping
   public ResponseEntity<List<ExpenseItem>> getAllExpenseItems() {
 
-    List<ExpenseItem> expenseItemList = (List<ExpenseItem>) expenseItemRepository.findAll();
+    List<ExpenseItem> expenseItemList = expenseItemService.getExpenseItemList();
 
     return new ResponseEntity<>(expenseItemList, HttpStatus.OK);
   }
 
   @PostMapping
   public ExpenseItem create(@RequestBody ExpenseItem expenseItem) {
-    return expenseItemRepository.save(expenseItem);
+    return expenseItemService.save(expenseItem);
   }
 
   @PutMapping(value = "/{id}")
   public ExpenseItem updateExpenseItem(@PathVariable("id") ExpenseItem expenseItemFromDb, @RequestBody ExpenseItem expenseItem) {
-    BeanUtils.copyProperties(expenseItem, expenseItemFromDb, "id");
-    return expenseItemRepository.save(expenseItem);
+    return expenseItemService.update(expenseItemFromDb, expenseItem, "id");
   }
 
   @DeleteMapping("/{id}")
   public void deleteExpenseItem(@PathVariable("id") ExpenseItem expenseItem) {
-    expenseItemRepository.delete(expenseItem);
+    expenseItemService.delete(expenseItem);
   }
 
 }

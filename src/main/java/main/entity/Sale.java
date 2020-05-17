@@ -1,11 +1,13 @@
 package main.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Data
+@NoArgsConstructor
 @Entity
 @Table(name = "sales")
 public class Sale {
@@ -24,4 +26,11 @@ public class Sale {
   @JoinColumn(name = "warehouse_id")
   private Warehouse warehouse;
 
+  public Sale(Integer amount, Integer quantity, Timestamp saleDate, Warehouse warehouse) {
+    this.amount = amount;
+    this.quantity = quantity;
+    this.saleDate = saleDate;
+    this.warehouse = warehouse;
+
+  }
 }
