@@ -12,7 +12,7 @@ import java.util.List;
 
 //TODO(SDELAT)
 @RestController
-@RequestMapping(value = "/expense_items")
+@RequestMapping("/user/expense_items")
 public class ExpenseItemController {
 
 

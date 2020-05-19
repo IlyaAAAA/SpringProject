@@ -17,32 +17,31 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/topnav.css">
 </head>
-
-<div th:fragment= "nav">
-    <nav class="navbar navbar-default" style="background: #EEEEEE">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <!--            <a class="navbar-brand">SpringProject</a>-->
-                <span class="navbar-brand">SpringProject </span>
-            </div>
-
-                <ul class="nav justify-content-center">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/">Home</a>
-                    </li>
-                </ul>
-
-            <ul class="nav justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link active" href="/user">user</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#" id="logId">Log In</a>
-                </li>
-            </ul>
-
+<body>
+<nav class="navbar navbar-default" style="background: #EEEEEE">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <!--            <a class="navbar-brand">SpringProject</a>-->
+            <span class="navbar-brand">SpringProject </span>
         </div>
-    </nav>
-</div>
+
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active" href="/">Home</a>
+            </li>
+        </ul>
+
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link active" href="/user" id="userId" hidden>user</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/login" id="authId">Log in</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+<script src="js/navUpdate.js"></script>
 </body>
 </html>

@@ -1,7 +1,3 @@
-function logIn() {
-    alert(2);
-}
-
 function signIn() {
 
     let username = document.getElementById("loginInput").value
@@ -21,8 +17,6 @@ function signIn() {
     else {
         alert("Заполните поля!")
     }
-
-    //alert(username + " " +password)
 }
 
 function postQuery(user) {

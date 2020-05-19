@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/charge")
+@RequestMapping("/user/charge")
 public class ChargeController {
 
   private final ChargeService chargeService;

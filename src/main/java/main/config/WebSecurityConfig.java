@@ -1,6 +1,7 @@
 package main.config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -16,7 +17,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .httpBasic()
             .and()
             .authorizeRequests()
-            .antMatchers("/css/**", "/js/**", "/img/**", "/login/*", "/").permitAll()
+            .antMatchers("/css/**", "/js/**", "/img/**", "/login/singIn", "/").permitAll()
+            .antMatchers(HttpMethod.GET, "/login/userInfo").permitAll()
             .anyRequest().authenticated()
             .and()
             .formLogin()
@@ -25,6 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .permitAll()
             .and()
             .logout()
+            .logoutSuccessUrl("/")
             .permitAll();
 
   }

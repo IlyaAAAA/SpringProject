@@ -2,6 +2,9 @@ package main.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -23,6 +26,7 @@ public class Charge {
 
   @ManyToOne
   @JoinColumn(name = "expense_item_id")
+  @OnDelete(action = OnDeleteAction.CASCADE)
   private ExpenseItem expenseItem;
 
   public Charge(Integer amount, Timestamp chargeDate, ExpenseItem expenseItem) {
