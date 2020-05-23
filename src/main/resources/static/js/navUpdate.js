@@ -14,8 +14,8 @@ function getQuery() {
 
             try {
                 let user = JSON.parse(xhr.response);
-                document.querySelector("#userId").hidden = false;
-                document.querySelector("#userId").text = user.username;
+                document.querySelector("#userNavbarId").hidden = false;
+                document.querySelector("#userNavbarId").text = user.username;
                 setLogOut();
             }
             catch (err) {

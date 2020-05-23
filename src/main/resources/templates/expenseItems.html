@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/topnav.css">
+</head>
+<body>
+<div th:insert="topnav :: nav"></div>
+
+<div class="buttons" style="position: fixed; top: 40%; left: 1em; display: grid; align-content: start; gap: 0.5em;">
+
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" style="background: #2979FF">
+            Add
+        </button>
+        <div class="dropdown-menu">
+            <form class="px-4 py-3" onsubmit="add()" id="addForm">
+                <div class="form-group">
+                    <label for="expenseItemNameIdAdd">Name</label>
+                    <input type="text" class="form-control" id="expenseItemNameIdAdd" placeholder="Name" required>
+                </div>
+                <button type="submit" class="btn btn-primary" id="addButton">Add</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" style="background: #2979FF">
+            Update
+        </button>
+        <div class="dropdown-menu">
+            <form class="px-4 py-3" onsubmit="update()">
+                <div class="form-group">
+                    <label for="expenseItemIDId">Id</label>
+                    <input type="text" class="form-control" id="expenseItemIDId" placeholder="ID">
+                </div>
+                <div class="form-group">
+                    <label for="expenseItemNameIdUpdate">Name</label>
+                    <input type="text" class="form-control" id="expenseItemNameIdUpdate" placeholder="Name" required>
+                </div>
+                <button type="submit" class="btn btn-primary" id="updateButton">Update</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" style="background: #2979FF">
+            Delete
+        </button>
+        <div class="dropdown-menu">
+            <form class="px-4 py-3" onsubmit="remove()">
+                <div class="form-group">
+                    <label for="expenseItemNameIdDelete">Id</label>
+                    <input type="text" class="form-control" id="expenseItemNameIdDelete" placeholder="Name" required>
+                </div>
+                <button type="submit" class="btn btn-primary" id="deleteButton">Delete</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="mx-auto" style="width: 50%; margin-top: 5%">
+
+    <div>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Name</th>
+            </tr>
+            </thead>
+            <tbody id="tableBody">
+            <tr th:each="expenseItem : ${expenseItemsList}">
+                <th scope="row" th:text="${expenseItem.id}"></th>
+                <td th:text="${expenseItem.name}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<script src="js/navUpdate.js"></script>
+<script src="js/updateExpenseItemList.js"></script>
+</body>
+</html>

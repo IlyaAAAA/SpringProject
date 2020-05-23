@@ -32,7 +32,7 @@ public class SaleServiceImpl implements SaleService {
   @Override
   public Sale update(Sale saleFromDb, Sale sale, String field) {
     BeanUtils.copyProperties(sale, saleFromDb, field);
-    return saleRepository.save(sale);
+    return saleRepository.save(saleFromDb);
   }
 
   @Override

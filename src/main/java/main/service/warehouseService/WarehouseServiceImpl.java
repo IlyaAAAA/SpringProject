@@ -33,7 +33,7 @@ public class WarehouseServiceImpl implements WarehouseService {
   @Override
   public Warehouse update(Warehouse warehouseFromDb, Warehouse warehouse, String field) {
     BeanUtils.copyProperties(warehouse, warehouseFromDb, field);
-    return warehouseRepository.save(warehouse);
+    return warehouseRepository.save(warehouseFromDb);
   }
 
   @Override

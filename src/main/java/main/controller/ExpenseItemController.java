@@ -5,14 +5,13 @@ import main.service.expenseItemService.ExpenseItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
-//TODO(SDELAT)
-@RestController
-@RequestMapping("/user/expense_items")
+@Controller
+@RequestMapping("/expenseItems")
 public class ExpenseItemController {
 
 
@@ -23,14 +22,15 @@ public class ExpenseItemController {
     this.expenseItemService = expenseItemService;
   }
 
-
+  @ResponseBody
   @GetMapping(value = "/{id}") //nahodit po id, preobrazuet v object(6:39(1video))
   public ExpenseItem getItem(@PathVariable("id") ExpenseItem expenseItem){
 
     return expenseItem;
   }
 
-  @GetMapping
+  @ResponseBody
+  @GetMapping(value = "/getAll")
   public ResponseEntity<List<ExpenseItem>> getAllExpenseItems() {
 
     List<ExpenseItem> expenseItemList = expenseItemService.getExpenseItemList();
@@ -38,16 +38,19 @@ public class ExpenseItemController {
     return new ResponseEntity<>(expenseItemList, HttpStatus.OK);
   }
 
-  @PostMapping
+  @ResponseBody
+  @PostMapping("/create")
   public ExpenseItem create(@RequestBody ExpenseItem expenseItem) {
     return expenseItemService.save(expenseItem);
   }
 
-  @PutMapping(value = "/{id}")
+  @ResponseBody
+  @PutMapping("/{id}")
   public ExpenseItem updateExpenseItem(@PathVariable("id") ExpenseItem expenseItemFromDb, @RequestBody ExpenseItem expenseItem) {
     return expenseItemService.update(expenseItemFromDb, expenseItem, "id");
   }
 
+  @ResponseBody
   @DeleteMapping("/{id}")
   public void deleteExpenseItem(@PathVariable("id") ExpenseItem expenseItem) {
     expenseItemService.delete(expenseItem);

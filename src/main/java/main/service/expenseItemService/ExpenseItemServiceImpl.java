@@ -31,7 +31,7 @@ public class ExpenseItemServiceImpl implements ExpenseItemService {
   @Override
   public ExpenseItem update(ExpenseItem expenseItemFromDb, ExpenseItem expenseItem, String field) {
     BeanUtils.copyProperties(expenseItem, expenseItemFromDb, field);
-    return expenseItemRepository.save(expenseItem);
+    return expenseItemRepository.save(expenseItemFromDb);
   }
 
   @Override

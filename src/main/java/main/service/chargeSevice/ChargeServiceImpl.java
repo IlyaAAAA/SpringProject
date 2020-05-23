@@ -31,7 +31,7 @@ public class ChargeServiceImpl implements ChargeService {
   @Override
   public Charge update(Charge chargeFromDb, Charge charge, String field) {
     BeanUtils.copyProperties(charge, chargeFromDb, field);
-    return chargeRepository.save(charge);
+    return chargeRepository.save(chargeFromDb);
   }
 
   @Override

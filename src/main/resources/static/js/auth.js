@@ -12,7 +12,7 @@ function signIn() {
     if (username.length != 0 && password.length != 0) {
         postQuery(user)
 
-        window.location.reload()
+        window.location.reload();
     }
     else {
         alert("Заполните поля!")
