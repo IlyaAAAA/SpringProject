@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
-@RequestMapping("/charge")
+@RestController
+@RequestMapping("/charges")
 public class ChargeController {
 
   private final ChargeService chargeService;

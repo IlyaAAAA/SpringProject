@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/expenseItems")
 public class ExpenseItemController {
 
@@ -22,14 +22,12 @@ public class ExpenseItemController {
     this.expenseItemService = expenseItemService;
   }
 
-  @ResponseBody
   @GetMapping(value = "/{id}") //nahodit po id, preobrazuet v object(6:39(1video))
   public ExpenseItem getItem(@PathVariable("id") ExpenseItem expenseItem){
 
     return expenseItem;
   }
 
-  @ResponseBody
   @GetMapping(value = "/getAll")
   public ResponseEntity<List<ExpenseItem>> getAllExpenseItems() {
 
@@ -38,19 +36,16 @@ public class ExpenseItemController {
     return new ResponseEntity<>(expenseItemList, HttpStatus.OK);
   }
 
-  @ResponseBody
   @PostMapping("/create")
   public ExpenseItem create(@RequestBody ExpenseItem expenseItem) {
     return expenseItemService.save(expenseItem);
   }
 
-  @ResponseBody
   @PutMapping("/{id}")
   public ExpenseItem updateExpenseItem(@PathVariable("id") ExpenseItem expenseItemFromDb, @RequestBody ExpenseItem expenseItem) {
     return expenseItemService.update(expenseItemFromDb, expenseItem, "id");
   }
 
-  @ResponseBody
   @DeleteMapping("/{id}")
   public void deleteExpenseItem(@PathVariable("id") ExpenseItem expenseItem) {
     expenseItemService.delete(expenseItem);

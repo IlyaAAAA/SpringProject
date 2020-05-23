@@ -30,9 +30,20 @@
         <div class="dropdown-menu">
             <form class="px-4 py-3" onsubmit="add()" id="addForm">
                 <div class="form-group">
-                    <label for="expenseItemNameIdAdd">Name</label>
-                    <input type="text" class="form-control" id="expenseItemNameIdAdd" placeholder="Name" required>
+                    <label for="warehousesIdName">Name</label>
+                    <input type="text" class="form-control" id="warehousesIdName" placeholder="Name" required>
                 </div>
+
+                <div class="form-group">
+                    <label for="warehousesIdQuantity">Quantity</label>
+                    <input type="text" class="form-control" id="warehousesIdQuantity" placeholder="Quantity" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="warehousesIdAmount">Amount</label>
+                    <input type="text" class="form-control" id="warehousesIdAmount" placeholder="Amount" required>
+                </div>
+
                 <button type="submit" class="btn btn-primary" id="addButton">Add</button>
             </form>
         </div>
@@ -46,13 +57,24 @@
         <div class="dropdown-menu">
             <form class="px-4 py-3" onsubmit="update()">
                 <div class="form-group">
-                    <label for="expenseItemIDId">Id</label>
-                    <input type="text" class="form-control" id="expenseItemIDId" placeholder="ID" required>
+                    <label for="warehousesIdUpdate">Id</label>
+                    <input type="text" class="form-control" id="warehousesIdUpdate" placeholder="ID" required>
                 </div>
                 <div class="form-group">
-                    <label for="expenseItemNameIdUpdate">Name</label>
-                    <input type="text" class="form-control" id="expenseItemNameIdUpdate" placeholder="Name" required>
+                    <label for="warehousesNameUpdate">Name</label>
+                    <input type="text" class="form-control" id="warehousesNameUpdate" placeholder="Name" required>
                 </div>
+
+                <div class="form-group">
+                    <label for="warehousesQuantityUpdate">Quantity</label>
+                    <input type="text" class="form-control" id="warehousesQuantityUpdate" placeholder="Quantity" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="warehousesAmountUpdate">Amount</label>
+                    <input type="text" class="form-control" id="warehousesAmountUpdate" placeholder="Amount" required>
+                </div>
+
                 <button type="submit" class="btn btn-primary" id="updateButton">Update</button>
             </form>
         </div>
@@ -66,8 +88,8 @@
         <div class="dropdown-menu">
             <form class="px-4 py-3" onsubmit="remove()">
                 <div class="form-group">
-                    <label for="expenseItemNameIdDelete">Id</label>
-                    <input type="text" class="form-control" id="expenseItemNameIdDelete" placeholder="Id" required>
+                    <label for="warehousesIdDelete">Id</label>
+                    <input type="text" class="form-control" id="warehousesIdDelete" placeholder="Name" required>
                 </div>
                 <button type="submit" class="btn btn-primary" id="deleteButton">Delete</button>
             </form>
@@ -85,12 +107,16 @@
             <tr>
                 <th scope="col">id</th>
                 <th scope="col">Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Amount</th>
             </tr>
             </thead>
             <tbody id="tableBody">
-            <tr th:each="expenseItem : ${expenseItemsList}">
-                <th scope="row" th:text="${expenseItem.id}"></th>
-                <td th:text="${expenseItem.name}"></td>
+            <tr th:each="warehouses : ${warehousesList}">
+                <th scope="row" th:text="${warehouses.id}"></th>
+                <td th:text="${warehouses.name}"></td>
+                <td th:text="${warehouses.quantity}"></td>
+                <td th:text="${warehouses.amount}"></td>
             </tr>
             </tbody>
         </table>
@@ -99,6 +125,6 @@
 </div>
 <script src="js/navUpdate.js"></script>
 <script src="js/RestQuery.js"></script>
-<script src="js/updateExpenseItemList.js"></script>
+<script src="js/updateWarehousesList.js"></script>
 </body>
 </html>

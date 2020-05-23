@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/warehouse")
+@RequestMapping("/warehouses")
 public class WarehouseController {
 
   private final WarehouseService warehouseService;
@@ -27,7 +27,7 @@ public class WarehouseController {
     return warehouse;
   }
 
-  @GetMapping
+  @GetMapping("/getAll")
   public ResponseEntity<List<Warehouse>> getAllWarehouse() {
 
     List<Warehouse> warehousesList = warehouseService.getWarehouseList();
@@ -35,7 +35,7 @@ public class WarehouseController {
     return new ResponseEntity<>(warehousesList, HttpStatus.OK);
   }
 
-  @PostMapping
+  @PostMapping("/create")
   public Warehouse create(@RequestBody Warehouse warehouse) {
     return warehouseService.save(warehouse);
   }
