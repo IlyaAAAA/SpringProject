@@ -8,6 +8,7 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
@@ -21,15 +22,15 @@ public class Charge {
 
   private Integer amount;
 
-  @Column(name = "charge_date", nullable = false)
-  private Timestamp chargeDate;
+  @Column(name = "charge_date")
+  private LocalDate chargeDate;
 
   @ManyToOne
   @JoinColumn(name = "expense_item_id")
   @OnDelete(action = OnDeleteAction.CASCADE)
   private ExpenseItem expenseItem;
 
-  public Charge(Integer amount, Timestamp chargeDate, ExpenseItem expenseItem) {
+  public Charge(Integer amount, LocalDate chargeDate, ExpenseItem expenseItem) {
     this.amount = amount;
     this.chargeDate = chargeDate;
     this.expenseItem = expenseItem;

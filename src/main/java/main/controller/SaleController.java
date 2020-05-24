@@ -27,7 +27,7 @@ public class SaleController {
     return sale;
   }
 
-  @GetMapping
+  @GetMapping("/getAll")
   public ResponseEntity<List<Sale>> getAllESale() {
 
     List<Sale> saleList = saleService.getSaleList();
@@ -35,7 +35,7 @@ public class SaleController {
     return new ResponseEntity<>(saleList, HttpStatus.OK);
   }
 
-  @PostMapping
+  @PostMapping("/create")
   public Sale create(@RequestBody Sale sale) {
     return saleService.save(sale);
   }

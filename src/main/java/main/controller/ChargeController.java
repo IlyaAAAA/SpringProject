@@ -27,7 +27,7 @@ public class ChargeController {
     return charge;
   }
 
-  @GetMapping
+  @GetMapping("/getAll")
   public ResponseEntity<List<Charge>> getAllCharge() {
 
     List<Charge> chargeListList = chargeService.getChargeList();
@@ -35,7 +35,7 @@ public class ChargeController {
     return new ResponseEntity<>(chargeListList, HttpStatus.OK);
   }
 
-  @PostMapping
+  @PostMapping("/create")
   public Charge create(@RequestBody Charge charge) {
     return chargeService.save(charge);
   }

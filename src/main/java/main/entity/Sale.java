@@ -6,7 +6,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
@@ -21,15 +21,15 @@ public class Sale {
 
   private Integer quantity;
 
-  @Column(name = "sale_date", nullable = false)
-  private Timestamp saleDate;
+  @Column(name = "sale_date")
+  private LocalDate saleDate;
 
   @ManyToOne
   @JoinColumn(name = "warehouse_id")
   @OnDelete(action = OnDeleteAction.CASCADE)
   private Warehouse warehouse;
 
-  public Sale(Integer amount, Integer quantity, Timestamp saleDate, Warehouse warehouse) {
+  public Sale(Integer amount, Integer quantity, LocalDate saleDate, Warehouse warehouse) {
     this.amount = amount;
     this.quantity = quantity;
     this.saleDate = saleDate;

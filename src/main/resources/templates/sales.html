@@ -30,18 +30,23 @@
         <div class="dropdown-menu">
             <form class="px-4 py-3" onsubmit="add()" id="addForm">
                 <div class="form-group">
-                    <label for="warehousesIdName">Name</label>
-                    <input type="text" class="form-control" id="warehousesIdName" placeholder="Name" required>
+                    <label for="salesIdAmount">Amount</label>
+                    <input type="text" class="form-control" id="salesIdAmount" placeholder="Amount" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="warehousesIdQuantity">Quantity</label>
-                    <input type="text" class="form-control" id="warehousesIdQuantity" placeholder="Quantity" required>
+                    <label for="salesIdQuantity">Quantity</label>
+                    <input type="text" class="form-control" id="salesIdQuantity" placeholder="Quantity" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="warehousesIdAmount">Amount</label>
-                    <input type="text" class="form-control" id="warehousesIdAmount" placeholder="Amount" required>
+                    <label for="salesIdSaleDate">Sale date</label>
+                    <input type="date" class="form-control" id="salesIdSaleDate" placeholder="Sale date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="salesIdWarehouse">Warehouse</label>
+                    <input type="text" class="form-control" id="salesIdWarehouse" placeholder="Warehouse" required>
                 </div>
 
                 <button type="submit" class="btn btn-primary" id="addButton">Add</button>
@@ -57,22 +62,27 @@
         <div class="dropdown-menu">
             <form class="px-4 py-3" onsubmit="update()">
                 <div class="form-group">
-                    <label for="warehousesIdUpdate">Id</label>
-                    <input type="text" class="form-control" id="warehousesIdUpdate" placeholder="ID" required>
+                    <label for="salesIdUpdate">Id</label>
+                    <input type="text" class="form-control" id="salesIdUpdate" placeholder="ID" required>
                 </div>
                 <div class="form-group">
-                    <label for="warehousesNameUpdate">Name</label>
-                    <input type="text" class="form-control" id="warehousesNameUpdate" placeholder="Name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="warehousesQuantityUpdate">Quantity</label>
-                    <input type="text" class="form-control" id="warehousesQuantityUpdate" placeholder="Quantity" required>
+                    <label for="salesAmountUpdate">Amount</label>
+                    <input type="text" class="form-control" id="salesAmountUpdate" placeholder="Amount" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="warehousesAmountUpdate">Amount</label>
-                    <input type="text" class="form-control" id="warehousesAmountUpdate" placeholder="Amount" required>
+                    <label for="salesQuantityUpdate">Quantity</label>
+                    <input type="text" class="form-control" id="salesQuantityUpdate" placeholder="Quantity" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="salesSaleDateUpdate">Sale date</label>
+                    <input type="date" class="form-control" id="salesSaleDateUpdate" placeholder="Sale date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="salesWarehouseUpdate">Warehouse</label>
+                    <input type="text" class="form-control" id="salesWarehouseUpdate" placeholder="Warehouse" required>
                 </div>
 
                 <button type="submit" class="btn btn-primary" id="updateButton">Update</button>
@@ -88,8 +98,8 @@
         <div class="dropdown-menu">
             <form class="px-4 py-3" onsubmit="remove()">
                 <div class="form-group">
-                    <label for="warehousesIdDelete">Id</label>
-                    <input type="text" class="form-control" id="warehousesIdDelete" placeholder="Id" required>
+                    <label for="salesIdDelete">Id</label>
+                    <input type="text" class="form-control" id="salesIdDelete" placeholder="Id" required>
                 </div>
                 <button type="submit" class="btn btn-primary" id="deleteButton">Delete</button>
             </form>
@@ -106,17 +116,19 @@
             <thead>
             <tr>
                 <th scope="col">id</th>
-                <th scope="col">Name</th>
-                <th scope="col">Quantity</th>
                 <th scope="col">Amount</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Sale date</th>
+                <th scope="col">Warehouse(id)</th>
             </tr>
             </thead>
             <tbody id="tableBody">
-            <tr th:each="warehouses : ${warehousesList}">
-                <th scope="row" th:text="${warehouses.id}"></th>
-                <td th:text="${warehouses.name}"></td>
-                <td th:text="${warehouses.quantity}"></td>
-                <td th:text="${warehouses.amount}"></td>
+            <tr th:each="sales : ${salesList}">
+                <th scope="row" th:text="${sales.id}"></th>
+                <td th:text="${sales.amount}"></td>
+                <td th:text="${sales.quantity}"></td>
+                <td th:text="${sales.saleDate}"></td>
+                <td th:text="${sales.warehouse.id}"></td>
             </tr>
             </tbody>
         </table>
@@ -125,6 +137,6 @@
 </div>
 <script src="js/navUpdate.js"></script>
 <script src="js/RestQuery.js"></script>
-<script src="js/updateWarehousesList.js"></script>
+<script src="js/updateSalesList.js"></script>
 </body>
 </html>
