@@ -28,12 +28,12 @@
             Add
         </button>
         <div class="dropdown-menu">
-            <form class="px-4 py-3" onsubmit="add()" id="addForm">
+            <form class="px-4 py-3" id="addForm">
                 <div class="form-group">
                     <label for="expenseItemNameIdAdd">Name</label>
                     <input type="text" class="form-control" id="expenseItemNameIdAdd" placeholder="Name" required>
                 </div>
-                <button type="submit" class="btn btn-primary" id="addButton">Add</button>
+                <button type="button" class="btn btn-primary" id="addButton" onclick="add()">Add</button>
             </form>
         </div>
     </div>
@@ -44,7 +44,7 @@
             Update
         </button>
         <div class="dropdown-menu">
-            <form class="px-4 py-3" onsubmit="update()">
+            <form class="px-4 py-3">
                 <div class="form-group">
                     <label for="expenseItemIDId">Id</label>
                     <input type="text" class="form-control" id="expenseItemIDId" placeholder="ID" required>
@@ -53,7 +53,7 @@
                     <label for="expenseItemNameIdUpdate">Name</label>
                     <input type="text" class="form-control" id="expenseItemNameIdUpdate" placeholder="Name" required>
                 </div>
-                <button type="submit" class="btn btn-primary" id="updateButton">Update</button>
+                <button type="button" class="btn btn-primary" id="updateButton" onclick="update()">Update</button>
             </form>
         </div>
     </div>
@@ -64,12 +64,12 @@
             Delete
         </button>
         <div class="dropdown-menu">
-            <form class="px-4 py-3" onsubmit="remove()">
+            <form class="px-4 py-3">
                 <div class="form-group">
                     <label for="expenseItemNameIdDelete">Id</label>
                     <input type="text" class="form-control" id="expenseItemNameIdDelete" placeholder="Id" required>
                 </div>
-                <button type="submit" class="btn btn-primary" id="deleteButton">Delete</button>
+                <button type="button" class="btn btn-primary" id="deleteButton" onclick="remove()">Delete</button>
             </form>
         </div>
     </div>

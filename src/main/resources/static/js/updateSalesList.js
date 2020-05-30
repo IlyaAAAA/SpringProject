@@ -74,7 +74,7 @@ function getWarehouseQuery(url, warehouse, sale, callback) {
                 callback(warehouse, sale);
             }
             catch (err) {
-
+                alert("Failed to find expense item with id " + warehouse.id);
             }
         }
         else {

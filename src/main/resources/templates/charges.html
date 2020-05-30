@@ -28,7 +28,7 @@
             Add
         </button>
         <div class="dropdown-menu">
-            <form class="px-4 py-3" onsubmit="add()" id="addForm">
+            <form class="px-4 py-3" id="addForm">
                 <div class="form-group">
                     <label for="chargesIdAmount">Amount</label>
                     <input type="text" class="form-control" id="chargesIdAmount" placeholder="Amount" required>
@@ -44,7 +44,7 @@
                     <input type="text" class="form-control" id="chargesIdExpenseItem" placeholder="Expense item" required>
                 </div>
 
-                <button type="submit" class="btn btn-primary" id="addButton">Add</button>
+                <button type="button" class="btn btn-primary" id="addButton" onclick="add()">Add</button>
             </form>
         </div>
     </div>
@@ -55,7 +55,7 @@
             Update
         </button>
         <div class="dropdown-menu">
-            <form class="px-4 py-3" onsubmit="update()">
+            <form class="px-4 py-3">
                 <div class="form-group">
                     <label for="chargesIdUpdate">Id</label>
                     <input type="text" class="form-control" id="chargesIdUpdate" placeholder="ID" required>
@@ -75,7 +75,7 @@
                     <input type="text" class="form-control" id="chargesExpenseItemUpdate" placeholder="ExpenseItem" required>
                 </div>
 
-                <button type="submit" class="btn btn-primary" id="updateButton">Update</button>
+                <button type="button" class="btn btn-primary" id="updateButton" onclick="update()">Update</button>
             </form>
         </div>
     </div>
@@ -86,12 +86,12 @@
             Delete
         </button>
         <div class="dropdown-menu">
-            <form class="px-4 py-3" onsubmit="remove()">
+            <form class="px-4 py-3" id="deleteForm">
                 <div class="form-group">
                     <label for="chargesIdDelete">Id</label>
                     <input type="text" class="form-control" id="chargesIdDelete" placeholder="Id" required>
                 </div>
-                <button type="submit" class="btn btn-primary" id="deleteButton">Delete</button>
+                <button type="button" class="btn btn-primary" id="deleteButton" onclick="remove()">Delete</button>
             </form>
         </div>
     </div>
@@ -117,6 +117,7 @@
                 <td th:text="${charges.amount}"></td>
                 <td th:text="${charges.chargeDate}"></td>
                 <td th:text="${charges.expenseItem.id}"></td>
+<!--                <td><a th:href="@{charges/delete/{id}(id=${charges.id})}" class="btn btn-primary">Delete</a></td>-->
             </tr>
             </tbody>
         </table>

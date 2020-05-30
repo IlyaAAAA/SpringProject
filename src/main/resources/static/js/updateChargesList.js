@@ -1,6 +1,5 @@
 "use strict";
 
-
 function add() {
 
     let chargeAmount = document.querySelector("#chargesIdAmount").value;
@@ -16,12 +15,11 @@ function add() {
         chargeDate: chargeChargeData,
         expenseItem: expenseItem
     }
-
-    getExpenseItemQuery("/expenseItems/" + expenseItem.id, expenseItem, charge, (expenseItem, charge) => {
+    console.log();
+    getExpenseItemQuery("/expenseItems/" + expenseItem.id, expenseItem, charge,  (expenseItem, charge) => {
         charge.expenseItem = expenseItem;
         let json = JSON.stringify(charge);
         postQuery("/charges/create", json);
-
     });
 }
 
@@ -67,10 +65,11 @@ function getExpenseItemQuery(url, expenseItem, charge, callback) {
             try {
 
                 expenseItem = JSON.parse(xhr.response);
+                //alert(JSON.stringify(expenseItem));
                 callback(expenseItem, charge);
             }
             catch (err) {
-
+                alert("Failed to find expense item with id " + expenseItem.id);
             }
         }
         else {
@@ -78,5 +77,3 @@ function getExpenseItemQuery(url, expenseItem, charge, callback) {
         }
     }
 }
-
-

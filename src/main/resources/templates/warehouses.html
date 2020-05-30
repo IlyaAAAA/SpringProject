@@ -28,7 +28,7 @@
             Add
         </button>
         <div class="dropdown-menu">
-            <form class="px-4 py-3" onsubmit="add()" id="addForm">
+            <form class="px-4 py-3" id="addForm">
                 <div class="form-group">
                     <label for="warehousesIdName">Name</label>
                     <input type="text" class="form-control" id="warehousesIdName" placeholder="Name" required>
@@ -44,7 +44,7 @@
                     <input type="text" class="form-control" id="warehousesIdAmount" placeholder="Amount" required>
                 </div>
 
-                <button type="submit" class="btn btn-primary" id="addButton">Add</button>
+                <button type="button" class="btn btn-primary" id="addButton" onclick="add()">Add</button>
             </form>
         </div>
     </div>
@@ -75,7 +75,7 @@
                     <input type="text" class="form-control" id="warehousesAmountUpdate" placeholder="Amount" required>
                 </div>
 
-                <button type="submit" class="btn btn-primary" id="updateButton">Update</button>
+                <button type="button" class="btn btn-primary" id="updateButton" onclick="update()">Update</button>
             </form>
         </div>
     </div>
@@ -86,12 +86,12 @@
             Delete
         </button>
         <div class="dropdown-menu">
-            <form class="px-4 py-3" onsubmit="remove()">
+            <form class="px-4 py-3">
                 <div class="form-group">
                     <label for="warehousesIdDelete">Id</label>
                     <input type="text" class="form-control" id="warehousesIdDelete" placeholder="Id" required>
                 </div>
-                <button type="submit" class="btn btn-primary" id="deleteButton">Delete</button>
+                <button type="button" class="btn btn-primary" id="deleteButton" onclick="remove()">Delete</button>
             </form>
         </div>
     </div>
