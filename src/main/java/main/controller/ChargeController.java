@@ -20,7 +20,7 @@ public class ChargeController {
     this.chargeService = chargeService;
   }
 
-  @GetMapping(value = "/{id}") //nahodit po id, preobrazuet v object(6:39(1video))
+  @GetMapping(value = "/{id}")
   public Charge getCharge(@PathVariable("id") Charge charge){
 
     return charge;

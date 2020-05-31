@@ -5,7 +5,6 @@ import main.service.expenseItemService.ExpenseItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +21,7 @@ public class ExpenseItemController {
     this.expenseItemService = expenseItemService;
   }
 
-  @GetMapping(value = "/{id}") //nahodit po id, preobrazuet v object(6:39(1video))
+  @GetMapping(value = "/{id}")
   public ExpenseItem getItem(@PathVariable("id") ExpenseItem expenseItem){
 
     return expenseItem;

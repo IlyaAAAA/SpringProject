@@ -21,7 +21,7 @@ public class SaleController {
   }
 
 
-  @GetMapping(value = "/{id}") //nahodit po id, preobrazuet v object(6:39(1video))
+  @GetMapping(value = "/{id}")
   public Sale getSale(@PathVariable("id") Sale sale){
 
     return sale;

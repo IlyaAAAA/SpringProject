@@ -5,7 +5,6 @@ import main.service.warehouseService.WarehouseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,7 +20,7 @@ public class WarehouseController {
     this.warehouseService = warehouseService;
   }
 
-  @GetMapping(value = "/{id}") //nahodit po id, preobrazuet v object(6:39(1video))
+  @GetMapping(value = "/{id}")
   public Warehouse getItem(@PathVariable("id") Warehouse warehouse){
 
     return warehouse;
