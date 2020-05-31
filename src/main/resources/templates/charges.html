@@ -41,7 +41,8 @@
 
                 <div class="form-group">
                     <label for="chargesIdExpenseItem">Expense item</label>
-                    <input type="text" class="form-control" id="chargesIdExpenseItem" placeholder="Expense item" required>
+                    <input type="text" class="form-control" id="chargesIdExpenseItem" placeholder="Expense item"
+                           required>
                 </div>
 
                 <button type="button" class="btn btn-primary" id="addButton" onclick="add()">Add</button>
@@ -67,12 +68,14 @@
 
                 <div class="form-group">
                     <label for="chargesChargeDataUpdate">Charge data</label>
-                    <input type="date" class="form-control" id="chargesChargeDataUpdate" placeholder="ChargeData" required>
+                    <input type="date" class="form-control" id="chargesChargeDataUpdate" placeholder="ChargeData"
+                           required>
                 </div>
 
                 <div class="form-group">
                     <label for="chargesExpenseItemUpdate">Expense Item</label>
-                    <input type="text" class="form-control" id="chargesExpenseItemUpdate" placeholder="ExpenseItem" required>
+                    <input type="text" class="form-control" id="chargesExpenseItemUpdate" placeholder="ExpenseItem"
+                           required>
                 </div>
 
                 <button type="button" class="btn btn-primary" id="updateButton" onclick="update()">Update</button>
@@ -116,16 +119,42 @@
                 <th scope="row" th:text="${charges.id}"></th>
                 <td th:text="${charges.amount}"></td>
                 <td th:text="${charges.chargeDate}"></td>
-                <td th:text="${charges.expenseItem.id}"></td>
-<!--                <td><a th:href="@{charges/delete/{id}(id=${charges.id})}" class="btn btn-primary">Delete</a></td>-->
-            </tr>
-            </tbody>
+                <td>
+        <button id="buttonId" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" th:text="${charges.expenseItem.id}" th:data-thing="${charges.expenseItem.id}" onclick="getModal(this.getAttribute('data-thing'));">
+        </button>
+    </td>
+        </tr>
+        </tbody>
         </table>
+
+        <div class="modal fade" tabindex="-1" id="myModal" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Expense item</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="expenseItemNameIdAdd">Name</label>
+                            <input type="text" class="form-control" id="expenseItemNameIdAdd" readonly value="">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>
 <script src="js/navUpdate.js"></script>
 <script src="js/RestQuery.js"></script>
 <script src="js/updateChargesList.js"></script>
+<script src="js/chargesModal.js"></script>
 </body>
 </html>
