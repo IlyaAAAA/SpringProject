@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Sales</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -108,13 +108,16 @@
 
 </div>
 
+<div class="mx-auto" style="margin-top:2%">
+    <h1 align="center" style="color: Black">Sales</h1>
+</div>
 
 <div class="mx-auto" style="width: 50%; margin-top: 5%">
 
     <div>
         <table class="table table-bordered">
             <thead>
-            <tr>
+            <tr align="center">
                 <th scope="col">id</th>
                 <th scope="col">Amount</th>
                 <th scope="col">Quantity</th>
@@ -123,7 +126,7 @@
             </tr>
             </thead>
             <tbody id="tableBody">
-            <tr th:each="sales : ${salesList}">
+            <tr th:each="sales : ${salesList}" align="center">
                 <th scope="row" th:text="${sales.id}"></th>
                 <td th:text="${sales.amount}"></td>
                 <td th:text="${sales.quantity}"></td>

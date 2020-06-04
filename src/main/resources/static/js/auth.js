@@ -11,8 +11,6 @@ function signIn() {
 
     if (username.length != 0 && password.length != 0) {
         postQuery(user)
-
-        window.location.reload();
     }
     else {
         alert("Заполните поля!")
@@ -27,4 +25,18 @@ function postQuery(user) {
     xhr.open("POST", '/login/signIn', true)
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
     xhr.send(json);
+    xhr.onload = () => {
+        if (xhr.status === 200) {
+
+            try {
+                window.location.reload();
+            }
+            catch (err) {
+                alert("Failed to sign in!");
+            }
+        }
+        else {
+            alert("FAIL");
+        }
+    }
 }
