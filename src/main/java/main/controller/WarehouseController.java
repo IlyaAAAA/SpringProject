@@ -21,9 +21,11 @@ public class WarehouseController {
   }
 
   @GetMapping(value = "/{id}")
-  public Warehouse getItem(@PathVariable("id") Warehouse warehouse){
-
-    return warehouse;
+  public ResponseEntity<Warehouse> getItem(@PathVariable("id") Warehouse warehouse) {
+    if (warehouse == null) {
+      return new ResponseEntity<>(warehouse, HttpStatus.NOT_FOUND);
+    }
+    return new ResponseEntity<>(warehouse, HttpStatus.OK);
   }
 
   @GetMapping("/getAll")

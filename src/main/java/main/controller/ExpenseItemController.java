@@ -1,10 +1,12 @@
 package main.controller;
 
 import main.entity.ExpenseItem;
+import main.exceptions.NotFoundException;
 import main.service.expenseItemService.ExpenseItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,9 +24,12 @@ public class ExpenseItemController {
   }
 
   @GetMapping(value = "/{id}")
-  public ExpenseItem getItem(@PathVariable("id") ExpenseItem expenseItem){
+  public ResponseEntity<ExpenseItem> getItem(@PathVariable("id") ExpenseItem expenseItem){
 
-    return expenseItem;
+    if (expenseItem == null) {
+      return new ResponseEntity<>(expenseItem, HttpStatus.NOT_FOUND);
+    }
+    return new ResponseEntity<>(expenseItem, HttpStatus.OK);
   }
 
   @GetMapping(value = "/getAll")

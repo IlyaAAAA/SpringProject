@@ -22,9 +22,11 @@ public class SaleController {
 
 
   @GetMapping(value = "/{id}")
-  public Sale getSale(@PathVariable("id") Sale sale){
-
-    return sale;
+  public ResponseEntity<Sale> getSale(@PathVariable("id") Sale sale){
+    if (sale == null) {
+      return new ResponseEntity<>(sale, HttpStatus.NOT_FOUND);
+    }
+    return new ResponseEntity<>(sale, HttpStatus.OK);
   }
 
   @GetMapping("/getAll")

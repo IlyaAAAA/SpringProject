@@ -50,13 +50,19 @@ function update() {
     getWarehouseQuery("/warehouses/" + warehouse.id, warehouse, sale, (warehouse, sale) => {
         sale.warehouse = warehouse;
         let json = JSON.stringify(sale);
-        putQuery("/sales/" + saleId, json);
+
+        getSale("/sales/" + saleId, saleId, () => {
+            putQuery("/sales/" + saleId, json);
+        });
     });
 }
 
 function remove() {
     let saleId = document.querySelector("#salesIdDelete").value;
-    delQuery("/sales/" + saleId);
+
+    getSale("/sales/" + saleId, saleId, () => {
+        delQuery("/sales/" + saleId);
+    });
 }
 
 function getWarehouseQuery(url, warehouse, sale, callback) {
@@ -74,11 +80,29 @@ function getWarehouseQuery(url, warehouse, sale, callback) {
                 callback(warehouse, sale);
             }
             catch (err) {
-                alert("Failed to find expense item with id " + warehouse.id);
             }
         }
         else {
-            alert("FAIL");
+            alert("Failed to find expense item with id " + warehouse.id);
+        }
+    }
+}
+
+function getSale(url, sale, callback) {
+
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("GET", url, true);
+    xhr.send();
+    xhr.onload = () => {
+        if (xhr.status === 200) {
+
+            try {
+                callback();
+            } catch (err) {
+            }
+        } else {
+            alert("Failed to find sale with id: " + sale);
         }
     }
 }

@@ -20,6 +20,12 @@ function delQuery(url) {
     xhr.onload = () => {
         if (xhr.status === 200) {
             window.location.reload();
+
+            try {
+                window.location.reload();
+            } catch (err) {
+                alert("Failed to sign in!");
+            }
         }
     }
 }

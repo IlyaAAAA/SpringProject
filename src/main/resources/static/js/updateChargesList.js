@@ -24,7 +24,7 @@ function add() {
 }
 
 function update() {
-    let chargeId = document.querySelector("#chargesIdUpdate").value;
+    let chargesId = document.querySelector("#chargesIdUpdate").value;
     let chargeAmount = document.querySelector("#chargesAmountUpdate").value;
     let chargeChargeDate = document.querySelector("#chargesChargeDataUpdate").value;
     let chargeExpenseItemId = document.querySelector("#chargesExpenseItemUpdate").value;
@@ -44,13 +44,19 @@ function update() {
     getExpenseItemQuery("/expenseItems/" + expenseItem.id, expenseItem, charge, (expenseItem, charge) => {
         charge.expenseItem = expenseItem;
         let json = JSON.stringify(charge);
-        putQuery("/charges/" + chargeId, json);
+
+        getCharge("/charges/" + chargesId, chargesId, () => {
+            putQuery("/charges/" + chargesId, json);
+        });
     });
 }
 
 function remove() {
     let chargesId = document.querySelector("#chargesIdDelete").value;
-    delQuery("/charges/" + chargesId);
+
+    getCharge("/charges/" + chargesId, chargesId, () => {
+        delQuery("/charges/" + chargesId);
+    })
 }
 
 function getExpenseItemQuery(url, expenseItem, charge, callback) {
@@ -65,15 +71,32 @@ function getExpenseItemQuery(url, expenseItem, charge, callback) {
             try {
 
                 expenseItem = JSON.parse(xhr.response);
-                //alert(JSON.stringify(expenseItem));
                 callback(expenseItem, charge);
             }
             catch (err) {
-                alert("Failed to find expense item with id " + expenseItem.id);
             }
         }
         else {
-            alert("FAIL");
+            alert("Failed to find expense item with id " + expenseItem.id);
+        }
+    }
+}
+
+function getCharge(url, charge, callback) {
+
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("GET", url, true);
+    xhr.send();
+    xhr.onload = () => {
+        if (xhr.status === 200) {
+
+            try {
+                callback();
+            } catch (err) {
+            }
+        } else {
+            alert("Failed to find charge with id: " + charge);
         }
     }
 }

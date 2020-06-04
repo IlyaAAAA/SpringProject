@@ -22,11 +22,34 @@ function update() {
 
     let json = JSON.stringify(expenseItem);
 
-    putQuery("/expenseItems/" + expenseItemId, json);
+    getExpenseItem("/expenseItems/" + expenseItemId, expenseItemId, () => {
+        putQuery("/expenseItems/" + expenseItemId, json);
+    });
 }
 
 function remove() {
     let expenseItemId = document.querySelector("#expenseItemNameIdDelete").value;
 
-    delQuery("/expenseItems/" + expenseItemId);
+    getExpenseItem("/expenseItems/" + expenseItemId, expenseItemId, () => {
+        delQuery("/expenseItems/" + expenseItemId);
+    });
+}
+
+function getExpenseItem(url, expenseItem, callback) {
+
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("GET", url, true);
+    xhr.send();
+    xhr.onload = () => {
+        if (xhr.status === 200) {
+
+            try {
+                callback();
+            } catch (err) {
+            }
+        } else {
+            alert("Failed to find expense item with id: " + expenseItem)
+        }
+    }
 }

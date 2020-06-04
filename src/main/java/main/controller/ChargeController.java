@@ -21,9 +21,11 @@ public class ChargeController {
   }
 
   @GetMapping(value = "/{id}")
-  public Charge getCharge(@PathVariable("id") Charge charge){
-
-    return charge;
+  public ResponseEntity<Charge> getCharge(@PathVariable("id") Charge charge){
+    if (charge == null) {
+      return new ResponseEntity<>(charge, HttpStatus.NOT_FOUND);
+    }
+    return new ResponseEntity<>(charge, HttpStatus.OK);
   }
 
   @GetMapping("/getAll")
