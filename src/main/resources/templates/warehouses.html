@@ -36,12 +36,12 @@
 
                 <div class="form-group">
                     <label for="warehousesIdQuantity">Quantity</label>
-                    <input type="text" class="form-control" id="warehousesIdQuantity" placeholder="Quantity" required>
+                    <input type="number" class="form-control" id="warehousesIdQuantity" placeholder="Quantity" required>
                 </div>
 
                 <div class="form-group">
                     <label for="warehousesIdAmount">Amount</label>
-                    <input type="text" class="form-control" id="warehousesIdAmount" placeholder="Amount" required>
+                    <input type="number" class="form-control" id="warehousesIdAmount" placeholder="Amount" required>
                 </div>
 
                 <button type="button" class="btn btn-primary" id="addButton" onclick="add()">Add</button>
@@ -58,7 +58,7 @@
             <form class="px-4 py-3" onsubmit="update()">
                 <div class="form-group">
                     <label for="warehousesIdUpdate">Id</label>
-                    <input type="text" class="form-control" id="warehousesIdUpdate" placeholder="ID" required>
+                    <input type="number" class="form-control" id="warehousesIdUpdate" placeholder="ID" required>
                 </div>
                 <div class="form-group">
                     <label for="warehousesNameUpdate">Name</label>
@@ -67,12 +67,12 @@
 
                 <div class="form-group">
                     <label for="warehousesQuantityUpdate">Quantity</label>
-                    <input type="text" class="form-control" id="warehousesQuantityUpdate" placeholder="Quantity" required>
+                    <input type="number" class="form-control" id="warehousesQuantityUpdate" placeholder="Quantity" required>
                 </div>
 
                 <div class="form-group">
                     <label for="warehousesAmountUpdate">Amount</label>
-                    <input type="text" class="form-control" id="warehousesAmountUpdate" placeholder="Amount" required>
+                    <input type="number" class="form-control" id="warehousesAmountUpdate" placeholder="Amount" required>
                 </div>
 
                 <button type="button" class="btn btn-primary" id="updateButton" onclick="update()">Update</button>
@@ -89,7 +89,7 @@
             <form class="px-4 py-3">
                 <div class="form-group">
                     <label for="warehousesIdDelete">Id</label>
-                    <input type="text" class="form-control" id="warehousesIdDelete" placeholder="Id" required>
+                    <input type="number" class="form-control" id="warehousesIdDelete" placeholder="Id" required>
                 </div>
                 <button type="button" class="btn btn-primary" id="deleteButton" onclick="remove()">Delete</button>
             </form>

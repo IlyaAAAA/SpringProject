@@ -31,7 +31,7 @@
             <form class="px-4 py-3" id="addForm">
                 <div class="form-group">
                     <label for="chargesIdAmount">Amount</label>
-                    <input type="text" class="form-control" id="chargesIdAmount" placeholder="Amount" required>
+                    <input type="number" class="form-control" id="chargesIdAmount" placeholder="Amount" required>
                 </div>
 
                 <div class="form-group">
@@ -41,7 +41,7 @@
 
                 <div class="form-group">
                     <label for="chargesIdExpenseItem">Expense item</label>
-                    <input type="text" class="form-control" id="chargesIdExpenseItem" placeholder="Expense item"
+                    <input type="number" class="form-control" id="chargesIdExpenseItem" placeholder="Expense item"
                            required>
                 </div>
 
@@ -59,11 +59,11 @@
             <form class="px-4 py-3">
                 <div class="form-group">
                     <label for="chargesIdUpdate">Id</label>
-                    <input type="text" class="form-control" id="chargesIdUpdate" placeholder="ID" required>
+                    <input type="number" class="form-control" id="chargesIdUpdate" placeholder="ID" required>
                 </div>
                 <div class="form-group">
                     <label for="chargesAmountUpdate">Amount</label>
-                    <input type="text" class="form-control" id="chargesAmountUpdate" placeholder="Amount" required>
+                    <input type="number" class="form-control" id="chargesAmountUpdate" placeholder="Amount" required>
                 </div>
 
                 <div class="form-group">
@@ -74,7 +74,7 @@
 
                 <div class="form-group">
                     <label for="chargesExpenseItemUpdate">Expense Item</label>
-                    <input type="text" class="form-control" id="chargesExpenseItemUpdate" placeholder="ExpenseItem"
+                    <input type="number" class="form-control" id="chargesExpenseItemUpdate" placeholder="ExpenseItem"
                            required>
                 </div>
 
@@ -92,7 +92,7 @@
             <form class="px-4 py-3" id="deleteForm">
                 <div class="form-group">
                     <label for="chargesIdDelete">Id</label>
-                    <input type="text" class="form-control" id="chargesIdDelete" placeholder="Id" required>
+                    <input type="number" class="form-control" id="chargesIdDelete" placeholder="Id" required>
                 </div>
                 <button type="button" class="btn btn-primary" id="deleteButton" onclick="remove()">Delete</button>
             </form>

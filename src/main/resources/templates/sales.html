@@ -31,12 +31,12 @@
             <form class="px-4 py-3" id="addForm">
                 <div class="form-group">
                     <label for="salesIdAmount">Amount</label>
-                    <input type="text" class="form-control" id="salesIdAmount" placeholder="Amount" required>
+                    <input type="number" class="form-control" id="salesIdAmount" placeholder="Amount" required>
                 </div>
 
                 <div class="form-group">
                     <label for="salesIdQuantity">Quantity</label>
-                    <input type="text" class="form-control" id="salesIdQuantity" placeholder="Quantity" required>
+                    <input type="number" class="form-control" id="salesIdQuantity" placeholder="Quantity" required>
                 </div>
 
                 <div class="form-group">
@@ -46,7 +46,7 @@
 
                 <div class="form-group">
                     <label for="salesIdWarehouse">Warehouse</label>
-                    <input type="text" class="form-control" id="salesIdWarehouse" placeholder="Warehouse" required>
+                    <input type="number" class="form-control" id="salesIdWarehouse" placeholder="Warehouse" required>
                 </div>
 
                 <button type="button" class="btn btn-primary" id="addButton" onclick="add()">Add</button>
@@ -63,16 +63,16 @@
             <form class="px-4 py-3">
                 <div class="form-group">
                     <label for="salesIdUpdate">Id</label>
-                    <input type="text" class="form-control" id="salesIdUpdate" placeholder="ID" required>
+                    <input type="number" class="form-control" id="salesIdUpdate" placeholder="ID" required>
                 </div>
                 <div class="form-group">
                     <label for="salesAmountUpdate">Amount</label>
-                    <input type="text" class="form-control" id="salesAmountUpdate" placeholder="Amount" required>
+                    <input type="number" class="form-control" id="salesAmountUpdate" placeholder="Amount" required>
                 </div>
 
                 <div class="form-group">
                     <label for="salesQuantityUpdate">Quantity</label>
-                    <input type="text" class="form-control" id="salesQuantityUpdate" placeholder="Quantity" required>
+                    <input type="number" class="form-control" id="salesQuantityUpdate" placeholder="Quantity" required>
                 </div>
 
                 <div class="form-group">
@@ -82,7 +82,7 @@
 
                 <div class="form-group">
                     <label for="salesWarehouseUpdate">Warehouse</label>
-                    <input type="text" class="form-control" id="salesWarehouseUpdate" placeholder="Warehouse" required>
+                    <input type="number" class="form-control" id="salesWarehouseUpdate" placeholder="Warehouse" required>
                 </div>
 
                 <button type="button" class="btn btn-primary" id="updateButton" onclick="update()">Update</button>
@@ -99,7 +99,7 @@
             <form class="px-4 py-3">
                 <div class="form-group">
                     <label for="salesIdDelete">Id</label>
-                    <input type="text" class="form-control" id="salesIdDelete" placeholder="Id" required>
+                    <input type="number" class="form-control" id="salesIdDelete" placeholder="Id" required>
                 </div>
                 <button type="button" class="btn btn-primary" id="deleteButton" onclick="remove()">Delete</button>
             </form>
