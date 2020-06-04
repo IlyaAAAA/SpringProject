@@ -1,6 +1,5 @@
 package main.service.saleService;
 
-import main.entity.ExpenseItem;
 import main.entity.Sale;
 
 import java.util.List;

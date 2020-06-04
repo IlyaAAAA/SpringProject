@@ -1,6 +1,5 @@
 package main.service.saleService;
 
-import main.entity.ExpenseItem;
 import main.entity.Sale;
 import main.repository.SaleRepository;
 import org.springframework.beans.BeanUtils;

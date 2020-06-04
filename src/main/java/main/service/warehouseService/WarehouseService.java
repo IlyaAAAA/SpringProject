@@ -1,6 +1,5 @@
 package main.service.warehouseService;
 
-import main.entity.ExpenseItem;
 import main.entity.Warehouse;
 
 import java.util.List;

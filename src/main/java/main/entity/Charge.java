@@ -2,12 +2,10 @@ package main.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.time.LocalDate;
 
 @Data
