@@ -22,7 +22,7 @@ function postQuery(user) {
     let json = JSON.stringify(user)
     let xhr = new XMLHttpRequest();
 
-    xhr.open("POST", '/login/signIn', true)
+    xhr.open("POST", '/login/signUp', true)
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
     xhr.send(json);
     xhr.onload = () => {
@@ -32,11 +32,11 @@ function postQuery(user) {
                 window.location.reload();
             }
             catch (err) {
-                alert("Failed to sign in!");
+                alert("Failed to sign up!");
             }
         }
         else {
-            alert("FAIL");
+            alert("Failed to sign up");
         }
     }
 }

@@ -14,13 +14,17 @@ import java.util.Collections;
 @RequestMapping("/login")
 public class AuthenticationController {
 
-  @Autowired
-  private UserRepository userRepository;
-  @Autowired
-  private PasswordEncoder passwordEncoder;
+  private final UserRepository userRepository;
+  private final PasswordEncoder passwordEncoder;
 
-  @PostMapping("/signIn")
-  public String signIn(@RequestBody User user) {
+  @Autowired
+  public AuthenticationController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    this.userRepository = userRepository;
+    this.passwordEncoder = passwordEncoder;
+  }
+
+  @PostMapping("/signUp")
+  public String signUp(@RequestBody User user) {
     userRepository.save(new User(user.getUsername(), passwordEncoder.encode(user.getPassword()), Collections.singletonList("ROLE_USER")));
     return "authentication";
   }
