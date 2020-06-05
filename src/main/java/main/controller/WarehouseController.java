@@ -1,8 +1,8 @@
 package main.controller;
 
+import lombok.RequiredArgsConstructor;
 import main.entity.Warehouse;
 import main.service.warehouseService.WarehouseService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,14 +11,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/warehouses")
+@RequiredArgsConstructor
 public class WarehouseController {
 
   private final WarehouseService warehouseService;
-
-  @Autowired
-  public WarehouseController(WarehouseService warehouseService) {
-    this.warehouseService = warehouseService;
-  }
 
   @GetMapping(value = "/{id}")
   public ResponseEntity<Warehouse> getItem(@PathVariable("id") Warehouse warehouse) {

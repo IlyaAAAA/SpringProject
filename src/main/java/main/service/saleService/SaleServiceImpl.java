@@ -1,22 +1,18 @@
 package main.service.saleService;
 
+import lombok.RequiredArgsConstructor;
 import main.entity.Sale;
 import main.repository.SaleRepository;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class SaleServiceImpl implements SaleService {
 
   private final SaleRepository saleRepository;
-
-  @Autowired
-  public SaleServiceImpl(SaleRepository saleRepository) {
-    this.saleRepository = saleRepository;
-  }
 
   @Override
   public List<Sale> getSaleList() {

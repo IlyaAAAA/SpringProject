@@ -1,22 +1,18 @@
 package main.service.chargeSevice;
 
+import lombok.RequiredArgsConstructor;
 import main.entity.Charge;
 import main.repository.ChargeRepository;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ChargeServiceImpl implements ChargeService {
 
   private final ChargeRepository chargeRepository;
-
-  @Autowired
-  public ChargeServiceImpl(ChargeRepository chargeRepository) {
-    this.chargeRepository = chargeRepository;
-  }
 
   @Override
   public List<Charge> getChargeList() {

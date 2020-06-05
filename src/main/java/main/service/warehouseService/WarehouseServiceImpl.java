@@ -1,22 +1,18 @@
 package main.service.warehouseService;
 
+import lombok.RequiredArgsConstructor;
 import main.entity.Warehouse;
 import main.repository.WarehouseRepository;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class WarehouseServiceImpl implements WarehouseService {
 
   private final WarehouseRepository warehouseRepository;
-
-  @Autowired
-  public WarehouseServiceImpl(WarehouseRepository warehouseRepository) {
-    this.warehouseRepository = warehouseRepository;
-  }
 
   @Override
   public List<Warehouse> getWarehouseList() {

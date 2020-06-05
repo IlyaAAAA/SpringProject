@@ -1,22 +1,18 @@
 package main.service.expenseItemService;
 
+import lombok.RequiredArgsConstructor;
 import main.entity.ExpenseItem;
 import main.repository.ExpenseItemRepository;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ExpenseItemServiceImpl implements ExpenseItemService {
 
   private final ExpenseItemRepository expenseItemRepository;
-
-  @Autowired
-  public ExpenseItemServiceImpl(ExpenseItemRepository expenseItemRepository) {
-    this.expenseItemRepository = expenseItemRepository;
-  }
 
   @Override
   public List<ExpenseItem> getExpenseItemList() {

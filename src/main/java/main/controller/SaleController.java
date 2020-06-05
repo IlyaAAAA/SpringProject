@@ -1,8 +1,8 @@
 package main.controller;
 
+import lombok.RequiredArgsConstructor;
 import main.entity.Sale;
 import main.service.saleService.SaleService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,15 +11,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/sales")
+@RequiredArgsConstructor
 public class SaleController {
 
   private final SaleService saleService;
-
-  @Autowired
-  public SaleController(SaleService saleService) {
-    this.saleService = saleService;
-  }
-
 
   @GetMapping(value = "/{id}")
   public ResponseEntity<Sale> getSale(@PathVariable("id") Sale sale){

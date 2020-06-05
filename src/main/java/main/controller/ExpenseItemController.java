@@ -1,8 +1,8 @@
 package main.controller;
 
+import lombok.RequiredArgsConstructor;
 import main.entity.ExpenseItem;
 import main.service.expenseItemService.ExpenseItemService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,15 +11,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/expenseItems")
+@RequiredArgsConstructor
 public class ExpenseItemController {
 
 
   private final ExpenseItemService expenseItemService;
-
-  @Autowired
-  public ExpenseItemController(ExpenseItemService expenseItemService) {
-    this.expenseItemService = expenseItemService;
-  }
 
   @GetMapping(value = "/{id}")
   public ResponseEntity<ExpenseItem> getItem(@PathVariable("id") ExpenseItem expenseItem){

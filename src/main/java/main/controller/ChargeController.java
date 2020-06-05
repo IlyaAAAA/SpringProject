@@ -1,8 +1,8 @@
 package main.controller;
 
+import lombok.RequiredArgsConstructor;
 import main.entity.Charge;
 import main.service.chargeSevice.ChargeService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,14 +11,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/charges")
+@RequiredArgsConstructor
 public class ChargeController {
 
   private final ChargeService chargeService;
-
-  @Autowired
-  public ChargeController(ChargeService chargeService) {
-    this.chargeService = chargeService;
-  }
 
   @GetMapping(value = "/{id}")
   public ResponseEntity<Charge> getCharge(@PathVariable("id") Charge charge){
