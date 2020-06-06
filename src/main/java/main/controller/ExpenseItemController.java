@@ -46,7 +46,12 @@ public class ExpenseItemController {
 
   @DeleteMapping("/{id}")
   public void deleteExpenseItem(@PathVariable("id") ExpenseItem expenseItem) {
-    expenseItemService.delete(expenseItem);
+    try {
+      expenseItemService.delete(expenseItem);
+    }
+    catch (Exception e) {
+      System.out.println("От этого объекта зависит другой.");;
+    }
   }
 
 }

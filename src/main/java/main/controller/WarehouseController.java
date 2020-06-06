@@ -44,7 +44,12 @@ public class WarehouseController {
 
   @DeleteMapping("/{id}")
   public void deleteExpenseItem(@PathVariable("id") Warehouse warehouse) {
+    try {
     warehouseService.delete(warehouse);
+  }
+    catch (Exception e) {
+    System.out.println("От этого объекта зависит другой.");;
+  }
   }
 
 }
