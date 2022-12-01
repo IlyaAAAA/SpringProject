@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 public class CalcService {
 
     public int sumInts(int x, int y) {
-        return x + y;
+        return x + y * 2;
     }
 
 }
