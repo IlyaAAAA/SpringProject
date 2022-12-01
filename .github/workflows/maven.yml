@@ -38,14 +38,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Create dir
-        run: mkdir -p ~/.ssh
-      - name: Add key
-        run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-      - name: Change rules
-        run: chmod 600 ~/.ssh/id_rsa
-      - name: Add to know hosts
-        run: ssh-keyscan github.com >> ~/.ssh/known_hosts
+      - uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
         
       - name: Start on remote server
         env:
