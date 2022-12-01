@@ -44,6 +44,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }} 
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
         
+      - name: Add rights
+        run: sudo chmod 666 /var/run/docker.sock
       - name: Start on remote server
         run: docker-compose -H "ssh://${{ secrets.SERVER_LOGIN }}@${{ secrets.SERVER_ADDRESS }}" up
       
