@@ -39,8 +39,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Start on remote server
-        env:
-          SSH_PASSPHRASE: ${{secrets.SERVER_PASSPHRASE}}
         run: docker-compose -H "ssh://${{ secrets.SERVER_LOGIN }}@${{ secrets.SERVER_ADDRESS }}" up
       
     
