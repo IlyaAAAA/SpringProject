@@ -49,7 +49,7 @@ jobs:
     - name: check target
       run: ls target
     - name: Start on remote server
-      run: docker-compose -H "ssh://${{ secrets.SERVER_LOGIN }}@${{ secrets.SERVER_ADDRESS }}" up
+      run: docker-compose -H "ssh://${{ secrets.SERVER_LOGIN }}@${{ secrets.SERVER_ADDRESS }}" up -d
       
     
       
