@@ -42,12 +42,6 @@ jobs:
         
     - name: Add rights
       run: sudo chmod 666 /var/run/docker.sock
-    - name: Check dir
-      run: pwd
-    - name: check ls
-      run: ls
-    - name: check target
-      run: ls target
     - name: Start on remote server
       run: docker-compose -H "ssh://${{ secrets.SERVER_LOGIN }}@${{ secrets.SERVER_ADDRESS }}" up -d
       
