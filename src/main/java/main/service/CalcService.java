@@ -8,4 +8,5 @@ public class CalcService {
     public int sumInts(int x, int y) {
         return x + y;
     }
+
 }
